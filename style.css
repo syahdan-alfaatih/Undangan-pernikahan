@@ -1,0 +1,306 @@
+/* Variabel Warna & Font untuk kustomisasi mudah */
+:root {
+    --color-background: #FDF8F0; /* Krem lembut */
+    --color-text: #5D5D5D; /* Abu-abu tua */
+    --color-primary: #BFA054; /* Emas sebagai aksen */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Poppins', sans-serif;
+}
+
+/* Reset CSS Dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--color-background);
+    color: var(--color-text);
+    text-align: center;
+    overflow-x: hidden;
+}
+
+/* Kontrol Musik */
+#audio-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+}
+
+#play-pause-btn {
+    width: 50px;
+    height: 50px;
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: transform 0.2s;
+}
+
+#play-pause-btn:hover {
+    transform: scale(1.1);
+}
+
+#play-pause-btn.playing .fa-play { display: none; }
+#play-pause-btn.playing .fa-pause { display: block; }
+#play-pause-btn.play .fa-play { display: block; }
+#play-pause-btn.play .fa-pause { display: none; }
+
+#play-pause-btn.playing i {
+    animation: spin 4s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Utilitas */
+.hidden {
+    display: none;
+}
+
+.button {
+    margin-top: 20px;
+    padding: 12px 25px;
+    border: 2px solid var(--color-primary);
+    background-color: var(--color-primary);
+    color: white;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+.button:hover {
+    background-color: transparent;
+    color: var(--color-primary);
+}
+
+/* Struktur Section */
+.section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    position: relative;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    margin-bottom: 40px;
+    color: var(--color-primary);
+}
+
+/* --- EFEK ANIMASI BARU --- */
+.section .content > * {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.section.visible .content > * {
+    opacity: 1;
+    transform: translateY(0);
+}
+.section.visible .content > *:nth-child(1) { transition-delay: 0.1s; }
+.section.visible .content > *:nth-child(2) { transition-delay: 0.2s; }
+.section.visible .content > *:nth-child(3) { transition-delay: 0.3s; }
+.section.visible .content > *:nth-child(4) { transition-delay: 0.4s; }
+.section.visible .content > *:nth-child(5) { transition-delay: 0.5s; }
+
+/* 1. Bagian Sampul (Cover) */
+#cover {
+    background: url('images/background.jpg') no-repeat center center/cover;
+    color: white;
+}
+#cover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.cover-content {
+    position: relative;
+    z-index: 1;
+    animation: fadeIn 2s ease-in;
+}
+.cover-content p { font-size: 1.2rem; margin-bottom: 10px; }
+.cover-content h1 {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    margin-bottom: 20px;
+    color: var(--color-primary);
+}
+.guest-name { font-weight: bold; font-size: 1.3rem; margin-top: 20px; }
+#open-invitation {
+    margin-top: 30px;
+    padding: 12px 25px;
+    border: 2px solid white;
+    background-color: transparent;
+    color: white;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+#open-invitation:hover { background-color: white; color: #333; }
+
+/* Konten Utama */
+.content {
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* 2. Bagian Intro & Quote */
+#intro .quote { font-style: italic; font-size: 1.1rem; margin-bottom: 15px; }
+#intro .quote-source { font-weight: bold; margin-bottom: 40px; }
+.couple-names h2 { font-family: var(--font-heading); font-size: 2.5rem; color: var(--color-primary); }
+.couple-names .ampersand { font-family: var(--font-heading); font-size: 3rem; color: var(--color-primary); display: block; margin: 15px 0; }
+
+/* 2a. Bagian Turut Mengundang */
+.invited-guests {
+    margin: 30px auto 50px auto;
+    max-width: 700px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-left: 4px solid var(--color-primary);
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    text-align: left;
+}
+
+.invited-guests h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.invited-guests ol {
+    padding-left: 20px;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: var(--color-text);
+}
+
+.invited-guests li {
+    margin-bottom: 8px;
+}
+
+/* KODE BARU YANG LEBIH SPESIFIK DAN PASTI MENANG */
+.event-card p.info-lokasi {
+  display: flex;
+  align-items: flex-start; /* Paksa item sejajar di atas */
+  gap: 10px; /* Kita samakan saja gap-nya dengan p yang lain */
+}
+
+.event-card p.info-lokasi i {
+  margin-top: 4px; /* Mungkin perlu sedikit disesuaikan agar pas */
+}
+
+/* 3. Bagian Detail Acara */
+.event-details { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-bottom: 50px; }
+.event-card { background-color: rgba(255, 255, 255, 0.5); padding: 30px; border-radius: 10px; width: 300px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+.event-card h3 { font-family: var(--font-heading); color: var(--color-primary); font-size: 1.8rem; margin-bottom: 20px; }
+.event-card p { font-size: 1rem; line-height: 1.8; display: flex; align-items: center; gap: 10px; }
+.event-card i { color: var(--color-primary); }
+.countdown h3 { font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 20px; }
+#countdown-timer { display: flex; justify-content: center; gap: 15px; }
+.time-box { background-color: var(--color-primary); color: white; padding: 10px; border-radius: 5px; min-width: 70px; }
+.time-box span { display: block; font-size: 2rem; font-weight: bold; }
+
+/* 4. Bagian Galeri Foto */
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    width: 100%;
+}
+.photo-item {
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+.photo-item img:hover {
+    transform: scale(1.1);
+}
+
+/* 5. Bagian Lokasi & Peta */
+.map-container {
+    width: 100%;
+    max-width: 800px;
+    height: 400px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 20px auto;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+#location p {
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* 6. Bagian RSVP */
+#rsvp p {
+    max-width: 600px;
+    margin: 20px auto;
+    font-size: 1.1rem;
+}
+.thank-you {
+    margin-top: 40px !important;
+    font-style: italic;
+}
+.closing-names {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    color: var(--color-primary);
+    margin-top: 10px;
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Media Query untuk Mobile */
+@media (max-width: 768px) {
+    .section-title, .cover-content h1 { font-size: 2.5rem; }
+    .couple-names h2 { font-size: 2rem; }
+    .photo-grid { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+}
