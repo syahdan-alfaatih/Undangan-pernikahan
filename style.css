@@ -275,6 +275,61 @@ body {
     line-height: 1.7;
 }
 
+/* 7. Bagian Gift */
+#gift {
+    padding: 80px 20px;
+}
+
+#gift .gift-text {
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    line-height: 1.8;
+    color: var(--color-text);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.gift-card {
+    padding: 30px 20px;
+    border-radius: 12px;
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+    border: 2px dashed var(--color-primary); /* aksen elegan */
+    background-color: transparent; /* biar nyatu dengan background utama */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.gift-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+}
+
+.gift-logo {
+    width: 90px;
+    margin-bottom: 10px;
+    opacity: 0.9;
+}
+
+.gift-bank {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    color: var(--color-primary);
+    margin-bottom: 10px;
+}
+
+.gift-account {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+}
+
+.gift-name {
+    font-size: 1rem;
+    color: var(--color-text);
+}
+
 /* 6. Bagian RSVP */
 #rsvp p {
     max-width: 600px;
