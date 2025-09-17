@@ -166,6 +166,39 @@ body {
 }
 #open-invitation:hover { background-color: white; color: #333; }
 
+/* Assalamualaikum Section */
+/* Assalamualaikum Section */
+.salam-section,
+#intro.section {
+    min-height: auto;   /* tidak paksa penuh layar */
+    height: auto;       /* ikutin isi konten */
+    padding: 20px 15px; /* kurangi padding bawaan 60px → 20px */
+}
+
+.salam-text {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #444;
+    margin: 0;               /* hilangkan margin bawaan */
+    font-family: 'Poppins', sans-serif;
+}
+
+.bride-groom {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.5rem;
+    color: #bfa054;
+    margin: 3px 0;           /* lebih rapat */
+    line-height: 1.2;        /* jarak antar baris lebih rapat */
+}
+
+.invite-text {
+    font-size: 0.9rem;
+    line-height: 1.3;        /* lebih rapat */
+    color: #555;
+    margin: 0;               /* rapat tanpa jarak ekstra */
+}
+
+
 /* Konten Utama */
 .content {
     max-width: 900px;
@@ -328,6 +361,14 @@ body {
 .gift-name {
     font-size: 1rem;
     color: var(--color-text);
+}
+
+#basmalah {
+    font-size: 2rem;       
+    font-weight: bold;     
+    text-align: center;    
+    font-family: "Scheherazade New", serif;
+    margin: 40px 0 20px 0;  /* atas 40px, kanan 0, bawah 20px, kiri 0 */
 }
 
 /* 6. Bagian RSVP */
